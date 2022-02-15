@@ -11,6 +11,8 @@ import pandas as pd
 import logging
 import time
 import warnings
+import datetime
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
@@ -112,9 +114,14 @@ if __name__ == '__main__':
             INV_LOC = record[0]+'\\'+record[1]
             INV_NM = record[1]
             INV_SAS_FL = record[1]
-            INV_SAS_CR_DT = record[2]
-            INV_SAS_MD_DT = record[3]
-            INV_SAS_EX_DT = record[4]
+
+            creation_date = str(datetime.datetime.strptime(record[2], "%a %b %d %H:%M:%S %Y"))
+            INV_SAS_CR_DT = creation_date[:10]
+            modified_date = str(datetime.datetime.strptime(record[3], "%a %b %d %H:%M:%S %Y"))
+            INV_SAS_MD_DT = modified_date[:10]
+            executed_date = str(datetime.datetime.strptime(record[4], "%a %b %d %H:%M:%S %Y"))
+            INV_SAS_EX_DT = executed_date[:10]
+
             INV_SAS_FL_OWN = record[5]
             INV_SAS_FL_MTD_LOC = record[0]
             if INV_SAS_EX_DT == "":
