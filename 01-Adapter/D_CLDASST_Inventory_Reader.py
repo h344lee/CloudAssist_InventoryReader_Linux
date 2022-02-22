@@ -100,7 +100,7 @@ if __name__ == '__main__':
     logging.debug(file_list)
 
     sas_extensions = ['ddf', 'djf', 'egp', 'sas', 'sas7bcat', 'sas7bdat', 'sas7bitm', 'sc2', 'sct01', 'sd2', 'spds9',
-                      'sri', 'ssd01', 'xsq']
+                      'sri', 'ssd01', 'xsq', 'log']
 
     counter = 1
     for record in file_list:
@@ -108,9 +108,9 @@ if __name__ == '__main__':
         extension = record[1].split('.')[1]
         if extension in sas_extensions:
 
-            INV_ID = counter
+            INV_ID = 'SF_' + str(counter)
             counter += 1
-            INV_TYP = ""
+            INV_TYP = "L"
             INV_LOC = record[0]+'\\'+record[1]
             INV_NM = record[1]
             INV_SAS_FL = record[1]
