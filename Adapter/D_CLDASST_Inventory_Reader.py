@@ -1,7 +1,7 @@
 """
-input file location: 01-Adapter/logs
-output file location: 00-Data Model
-program location: 01-Adapter
+input file location: Adapter/logs
+output file location: Data Model
+program location: Adapter
 Program name: D_CLDASST_Inventory_Reader.exe
 """
 
@@ -16,7 +16,7 @@ import datetime
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-# get file names in '01-Adapter/logs' folder in a recursive way
+# get file names in 'Adapter/logs' folder in a recursive way
 
 def getInventory(current_path, current_folder, visited, file_list):
 
@@ -139,13 +139,13 @@ if __name__ == '__main__':
 
     # write the result to the 00-Data Model directory
     if platform.system() == 'Windows':
-        if not os.path.isdir(path + "\\00-Data Model"):
-            os.makedirs(path + "\\00-Data Model")
-        inventory_df.to_excel(path+"\\00-Data Model\\D_CLDASST_DISC_INVENTORY.xlsx", index=False)
-        inventory_df.to_csv(path+"\\00-Data Model\\D_CLDASST_DISC_INVENTORY.csv", index=False)
+        if not os.path.isdir(path + "\\Data_Model\\Extracted_Files"):
+            os.makedirs(path + "\\Data_Model\\Extracted_Files")
+        inventory_df.to_excel(path+"\\Data_Model\\Extracted_Files\\D_CLDASST_DISC_INVENTORY.xlsx", index=False)
+        inventory_df.to_csv(path+"\\Data_Model\\Extracted_Files\\D_CLDASST_DISC_INVENTORY.csv", index=False)
     else:
-        if not os.path.isdir(path + "/00-Data Model"):
-            os.makedirs(path + "/00-Data Model")
-        inventory_df.to_excel(path+"/00-Data Model/D_CLDASST_DISC_INVENTORY.xlsx", index=False)
-        inventory_df.to_csv(path+"/00-Data Model/D_CLDASST_DISC_INVENTORY.csv", index=False)
+        if not os.path.isdir(path + "/Data_Model/Extracted_Files"):
+            os.makedirs(path + "/Data_Model/Extracted_Files")
+        inventory_df.to_excel(path+"/Data_Model/Extracted_Files/D_CLDASST_DISC_INVENTORY.xlsx", index=False)
+        inventory_df.to_csv(path+"/Data_Model/Extracted_Files/D_CLDASST_DISC_INVENTORY.csv", index=False)
     logging.info('end of the program')
