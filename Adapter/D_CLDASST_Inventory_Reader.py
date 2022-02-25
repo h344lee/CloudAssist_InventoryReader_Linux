@@ -100,7 +100,7 @@ if __name__ == '__main__':
     logging.debug(file_list)
 
     sas_extensions = ['ddf', 'djf', 'egp', 'sas', 'sas7bcat', 'sas7bdat', 'sas7bitm', 'sc2', 'sct01', 'sd2', 'spds9',
-                      'sri', 'ssd01', 'xsq', 'log']
+                      'sri', 'ssd01', 'xsq']
 
     counter = 1
     for record in file_list:
